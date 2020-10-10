@@ -1,3 +1,5 @@
+import datetime
+import shutil
 from tkinter import Tk, filedialog
 
 import pandas as pd
@@ -88,3 +90,6 @@ writer.book = wb
 df_summary.to_excel(writer, sheet_name="Summary", index=None)
 writer.save()
 writer.close()
+nowTime = datetime.datetime.now().strftime('%Y-%m-%d')
+file_name = "FLS SUP OM Kit Report " + nowTime + ".xlsx"
+shutil.copy(om_kit_report, file_name)
